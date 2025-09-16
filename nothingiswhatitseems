@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nothing is What it Seems — Tending Sands</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      perspective: 1000px;
+      text-align: center;
+    }
+
+    .glitch {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 40px auto;
+      position: relative;
+      color: #fff;
+      text-transform: uppercase;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+      25% { text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9; }
+      50% { text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9; }
+      75% { text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9; }
+      100% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+    }
+
+    .embed-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    iframe {
+      border: none;
+      box-shadow: 0 0 20px #00fff9, 0 0 40px #ff00c1;
+      border-radius: 16px;
+      max-width: 900px;
+      width: 90%;
+      height: 252px;
+    }
+
+    .glow-line {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, #ff00c1, #00fff9, #ff00c1);
+      background-size: 200% 100%;
+      animation: moveLine 4s linear infinite;
+      margin: 40px 0;
+    }
+
+    @keyframes moveLine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .embed-container:active {
+      transform: scale(0.98) rotateX(5deg);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin: 40px auto;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 2px solid #00fff9;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+      box-shadow: 0 0 12px #00fff9, 0 0 24px #ff00c1;
+      animation: buttonGlitch 2s infinite, buttonPulse 2.5s infinite;
+    }
+
+    @keyframes buttonGlitch {
+      0% { text-shadow: 1px 1px #ff00c1, -1px -1px #00fff9; }
+      25% { text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9; }
+      50% { text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9; }
+      75% { text-shadow: -1px -1px #ff00c1, 1px 1px #00fff9; }
+      100% { text-shadow: 1px 1px #ff00c1, -1px -1px #00fff9; }
+    }
+
+    @keyframes buttonPulse {
+      0% { box-shadow: 0 0 12px #00fff9, 0 0 24px #ff00c1; }
+      50% { box-shadow: 0 0 24px #00fff9, 0 0 48px #ff00c1; }
+      100% { box-shadow: 0 0 12px #00fff9, 0 0 24px #ff00c1; }
+    }
+
+    .back-button::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      background: linear-gradient(90deg, #ff00c1, #00fff9, #ff00c1);
+      background-size: 200% 100%;
+      z-index: -1;
+      border-radius: 8px;
+      filter: blur(8px);
+      opacity: 0.6;
+      animation: borderFlow 3s linear infinite;
+    }
+
+    @keyframes borderFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .back-button:hover {
+      background: linear-gradient(90deg, #ff00c1, #00fff9);
+      color: #000;
+      box-shadow: 0 0 28px #ff00c1, 0 0 56px #00fff9;
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch">Nothing is What it Seems</div>
+  <div class="glow-line"></div>
+
+  <div class="embed-container">
+    <iframe src="https://audiomack.com//embed/_tendingsands/song/nothing-is-what-it-seems" 
+      scrolling="no" 
+      frameborder="0" 
+      title="Nothing is What it Seems"></iframe>
+  </div>
+
+  <div class="glow-line"></div>
+
+  <a href="https://tendingsands.vercel.app" class="back-button">Back to Home</a>
+</body>
+<script>
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    document.querySelector('.embed-container').style.transform =
+      `rotateY(${x}deg) rotateX(${-y}deg)`;
+  });
+</script>
+</html>
+
+  });
+</script>
+</html>
